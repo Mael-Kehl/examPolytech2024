@@ -19,5 +19,5 @@ Joyeuses fêtes
 
 Précision : 
 
-Le back fonctionne, pas le healthcare
+Le back fonctionne, pas le healthcheck
 Une partie du front fonctionne
