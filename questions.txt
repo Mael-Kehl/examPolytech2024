@@ -1,0 +1,23 @@
+16. Qu'est ce que docker ? À quoi cela sert-il ? 
+
+Docker est une plateforme qui permet de déployer et exécuter des applications dans des environnements isolés appelés conteneurs. 
+Ces conteneurs encapsulent une application et toutes ses dépendances pour reproduire les environnements de déploiement et éviter les problèmes de configuration. 
+
+17. Qu'est ce que la CI et la CD ? Pourquoi est-ce utile ?
+
+CI-CD veut dire "continuous intégration continuous delivery", 
+conformément à son nom, CI-CD désigne une chaine d'actions appelée workflow qui sert à tester et déployer des applications de manière automatisée.
+Par exemple sur un répo git, on peut trigger un push ou une PR sur une branche pour que la pipeline CI-CD soit lancée. 
+
+18. Qu'avez vous pensé du cours ?
+
+nickel 
+
+19. surprenez-moi ?
+
+Joyeuses fêtes
+
+Précision : 
+
+Le back fonctionne, pas le healthcare
+Une partie du front fonctionne

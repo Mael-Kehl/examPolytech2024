@@ -1,0 +1,54 @@
+volumes:
+  database-mysql:
+
+networks:
+  network:
+
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: container_mysql_eval
+    environment:
+      MYSQL_DATABASE: superheroes
+      MYSQL_USER: sacha
+      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: admin
+    networks:
+      - network
+    volumes: 
+      - database-mysql:/var/lib/mysql
+    healthcheck:
+      test: mysqladmin ping -h localhost
+      interval: 3s
+      retries: 5
+      timeout: 5s
+
+
+  back: 
+    image: backeval
+    depends_on:
+      - db
+    build: 
+      context: java
+      dockerfile: Dockerfile
+    container_name: backeval
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://container_mysql_eval:3306/superheroes
+      SPRING_DATASOURCE_USERNAME: sacha
+      SPRING_DATASOURCE_PASSWORD: admin
+    ports:
+      - 8448:8448
+    networks:
+      - network
+
+  front:
+    image: frontend
+    build:
+      context: angular
+      dockerfile: Dockerfile
+    container_name: angulareval
+    environment:
+      BACKEND_URL: http://localhost:8080/
+    ports:
+      - 8888:80
